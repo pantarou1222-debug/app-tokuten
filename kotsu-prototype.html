@@ -32,11 +32,22 @@
     padding: 2px 12px; margin-bottom: 10px;
   }
   .step-title { font-size: 17px; font-weight: bold; margin-bottom: 10px; }
-  select, input[type="text"] {
+  select, input[type="text"], input[type="password"] {
     width: 100%; font-size: 17px; padding: 14px 12px;
     border: 2px solid #d8c3a5; border-radius: 12px; background: #fffdf8;
     color: #4A2C1A; appearance: none;
   }
+  .pw-wrap { position: relative; }
+  .pw-wrap input { padding-right: 58px; }
+  .pw-toggle {
+    position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+    width: 44px; height: 44px; min-width: 44px; min-height: 44px;
+    background: none; border: none; padding: 0; margin: 0;
+    display: flex; align-items: center; justify-content: center;
+    color: #4A2C1A; cursor: pointer; border-radius: 50%;
+  }
+  .pw-toggle:active { background: rgba(74,44,26,.08); }
+  .pw-toggle svg { width: 26px; height: 26px; display: block; }
   select {
     background-image: linear-gradient(45deg, transparent 50%, #4A2C1A 50%), linear-gradient(135deg, #4A2C1A 50%, transparent 50%);
     background-position: calc(100% - 22px) 55%, calc(100% - 15px) 55%;
@@ -139,7 +150,13 @@
   <div class="card hidden" id="pwCard">
     <span class="step-label">STEP 3</span>
     <div class="step-title">パスワードを入力してください</div>
-    <input type="text" id="pw" placeholder="パスワード" autocomplete="off">
+    <div class="pw-wrap">
+      <input type="password" id="pw" placeholder="パスワード" autocomplete="off">
+      <button class="pw-toggle" id="pwToggle" type="button" aria-label="パスワードを表示する" aria-pressed="false">
+        <svg id="pwEyeShow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        <svg id="pwEyeHide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1 2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+      </button>
+    </div>
     <p class="pw-note">パスワードは、拡散のご協力スクショをDMで送ってくださった方にお渡ししています。</p>
     <button class="open-btn" id="openBtn" type="button">深掘りを開く</button>
     <div class="error" id="err">パスワードが違うようです。DMでお渡しした文字を、そのまま入力してみてください。</div>
@@ -901,6 +918,19 @@ var errBox = document.getElementById('err');
 var deep = document.getElementById('deep');
 var selectedTip = null;
 var selectedSceneLabel = '';
+
+var pwToggle = document.getElementById('pwToggle');
+var pwEyeShow = document.getElementById('pwEyeShow');
+var pwEyeHide = document.getElementById('pwEyeHide');
+pwToggle.addEventListener('click', function () {
+  var show = pwInput.type === 'password';
+  pwInput.type = show ? 'text' : 'password';
+  pwEyeShow.style.display = show ? 'none' : 'block';
+  pwEyeHide.style.display = show ? 'block' : 'none';
+  pwToggle.setAttribute('aria-label', show ? 'パスワードを隠す' : 'パスワードを表示する');
+  pwToggle.setAttribute('aria-pressed', show ? 'true' : 'false');
+  pwInput.focus();
+});
 
 sceneSel.addEventListener('change', function () {
   var key = sceneSel.value;
