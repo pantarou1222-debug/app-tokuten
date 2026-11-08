@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>コツ深掘り｜介護家族の声掛け寄り添いパートナー 特典</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", sans-serif;
+    background: #FFF6E6;
+    color: #4A2C1A;
+    line-height: 1.8;
+    padding: 16px 14px 40px;
+    -webkit-text-size-adjust: 100%;
+  }
+  .wrap { max-width: 560px; margin: 0 auto; }
+  .band {
+    background: #C62828; color: #fff; text-align: center;
+    font-weight: bold; font-size: 14px; letter-spacing: .08em;
+    border-radius: 999px; padding: 6px 10px; margin-bottom: 14px;
+  }
+  h1 { font-size: 24px; text-align: center; line-height: 1.5; margin-bottom: 8px; }
+  .lead { font-size: 15px; text-align: center; margin-bottom: 20px; }
+  .card {
+    background: #fff; border-radius: 16px; padding: 20px 16px;
+    box-shadow: 0 2px 8px rgba(74,44,26,.12); margin-bottom: 16px;
+  }
+  .step-label {
+    display: inline-block; background: #00897B; color: #fff;
+    font-size: 13px; font-weight: bold; border-radius: 999px;
+    padding: 2px 12px; margin-bottom: 10px;
+  }
+  .step-title { font-size: 17px; font-weight: bold; margin-bottom: 10px; }
+  select, input[type="password"] {
+    width: 100%; font-size: 17px; padding: 14px 12px;
+    border: 2px solid #d8c3a5; border-radius: 12px; background: #fffdf8;
+    color: #4A2C1A; appearance: none;
+  }
+  select {
+    background-image: linear-gradient(45deg, transparent 50%, #4A2C1A 50%), linear-gradient(135deg, #4A2C1A 50%, transparent 50%);
+    background-position: calc(100% - 22px) 55%, calc(100% - 15px) 55%;
+    background-size: 7px 7px; background-repeat: no-repeat;
+  }
+  .tip-option {
+    display: block; border: 2px solid #e5d3b3; border-radius: 12px;
+    padding: 14px 14px; margin-bottom: 10px; cursor: pointer;
+    font-size: 16px; background: #fffdf8;
+  }
+  .tip-option input { margin-right: 10px; transform: scale(1.3); vertical-align: middle; }
+  .tip-option.selected { border-color: #C62828; background: #fdf1ec; }
+  .tip-option .tip-name { font-weight: bold; }
+  button.open-btn {
+    width: 100%; background: #C62828; color: #fff; border: none;
+    font-size: 18px; font-weight: bold; padding: 16px;
+    border-radius: 999px; cursor: pointer; margin-top: 6px;
+  }
+  button.open-btn:active { opacity: .85; }
+  .pw-note { font-size: 13px; color: #8a6a4e; margin-top: 10px; }
+  .error {
+    display: none; background: #fdf1ec; border: 1px solid #C62828;
+    color: #C62828; border-radius: 10px; padding: 10px 12px;
+    font-size: 14px; margin-top: 12px;
+  }
+  #deep { display: none; }
+  #deep h2 { font-size: 20px; margin-bottom: 4px; }
+  #deep .scene-tag { font-size: 13px; color: #00897B; font-weight: bold; margin-bottom: 12px; }
+  #deep h3 { font-size: 15px; color: #C62828; margin: 16px 0 4px; }
+  #deep p { font-size: 15px; }
+  .position {
+    background: #f3e7cf; border-radius: 12px; padding: 14px;
+    font-size: 14px; margin-top: 20px;
+  }
+  .pitch { text-align: center; }
+  .pitch h2 { font-size: 19px; margin-bottom: 8px; }
+  .pitch p { font-size: 14px; margin-bottom: 14px; }
+  .pitch a.btn {
+    display: block; text-decoration: none; border-radius: 999px;
+    padding: 15px; font-size: 17px; font-weight: bold; margin-bottom: 10px;
+  }
+  .btn-trial { background: #00897B; color: #fff; }
+  .btn-product { background: #4A2C1A; color: #fff; }
+  .price-note { font-size: 13px; color: #8a6a4e; }
+  .hidden { display: none; }
+  footer { text-align: center; font-size: 12px; color: #a5876a; margin-top: 24px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="band">拡散のご協力ありがとうございます・限定特典</div>
+  <h1>体験版で出たコツ、<br>もっと深く知れます</h1>
+  <p class="lead">体験版アプリで出てきた「コツ」。実は、その先があります。<br>場面とコツを選んで、パスワードを入れると、体験版では明かされなかった<strong>深掘りの内容</strong>が開きます。</p>
+
+  <div class="card">
+    <span class="step-label">STEP 1</span>
+    <div class="step-title">場面を選んでください</div>
+    <select id="scene">
+      <option value="">― 場面を選ぶ ―</option>
+      <option value="meal">食事（食べたのに「食べてない」・ご飯まだ？）</option>
+      <option value="bath">入浴（お風呂を嫌がる）</option>
+      <option value="home">帰宅願望（家に帰りたい）</option>
+    </select>
+  </div>
+
+  <div class="card hidden" id="tipCard">
+    <span class="step-label">STEP 2</span>
+    <div class="step-title">体験版で出たコツに、いちばん近いものを1つ選んでください</div>
+    <div id="tipList"></div>
+  </div>
+
+  <div class="card hidden" id="pwCard">
+    <span class="step-label">STEP 3</span>
+    <div class="step-title">パスワードを入力してください</div>
+    <input type="password" id="pw" placeholder="パスワード" autocomplete="off">
+    <p class="pw-note">パスワードは、拡散のご協力スクショをDMで送ってくださった方にお渡ししています。</p>
+    <button class="open-btn" id="openBtn" type="button">深掘りを開く</button>
+    <div class="error" id="err">パスワードが違うようです。DMでお渡しした文字を、そのまま入力してみてください。</div>
+  </div>
+
+  <div class="card" id="deep">
+    <div class="scene-tag" id="deepScene"></div>
+    <h2 id="deepTitle"></h2>
+    <h3>なぜ効くか</h3>
+    <p id="deepWhy"></p>
+    <h3>実施方法</h3>
+    <p id="deepHow"></p>
+    <h3>よくある場面では</h3>
+    <p id="deepCase"></p>
+    <div class="position">
+      ここで読めるのは、場面ごとに想定される一般的なコツの深掘りです。<strong>あなたの親御さんと、あなたの場面に合わせた、その家だけの声かけ提案は、製品版「介護家族の声掛け寄り添いパートナー」だけで可能です。</strong>体験版・この特典は、あらかじめ用意されたコツの中から選ぶ形だからです。
+    </div>
+  </div>
+
+  <div class="card pitch">
+    <h2>毎日の声かけは、製品版で</h2>
+    <p>アプリ「介護家族の声掛け寄り添いパートナー」は、困り事を入れると、あなたの場面に合った声かけを複数提案。使った声かけは履歴で見返せて、介護の負担チェックもできます。</p>
+    <a class="btn btn-trial" href="https://app.bakusoku.ai/apps/6cacd1d5-3b71-4e11-9e7e-c25cb3378410">まず体験版をさわる（ログイン不要）</a>
+    <a class="btn btn-product" href="https://app.bakusoku.ai/apps/f50138e1-f013-49fc-a47b-a6afb50c6fd6">製品版を見てみる</a>
+    <p class="price-note">製品版は今、モニター価格で始められます（予告なく終了）。</p>
+  </div>
+
+  <footer>コロコロタウン｜介護コミュニケーションを伝えるプロ</footer>
+</div>
+
+<script>
+var DATA = {
+  meal: {
+    label: "食事",
+    tips: [
+      {
+        id: "meal-a", name: "「食べた証拠」を一緒に確認する",
+        why: "食べた記憶が抜け落ちると、本人の中では本当に「まだ食べていない」のです。そこへ「さっき食べたでしょ」と否定されると、不安と反発だけが強まります。食器などの痕跡は、言葉より強い「目で見える事実」。本人が自分の目で確かめると、言い争いにならずに納得が生まれます。",
+        how: "食後すぐ、片付ける前の食器を一緒に見ます。「ほら、今食べたとこだね。お茶碗、空っぽだよ」と、事実を声に出して共有するだけ。箸置きや汁椀の位置など、残っている痕跡を指さしながら話すのがコツです。片付けは、この確認が終わってからにします。",
+        scene: "昼食の30分後に「ご飯まだ？」と聞かれる場面。台所へ一緒に行き、洗い桶の食器を見せると「ああ、食べたんだったね」と落ち着くことがよくあります。痕跡がない時は、無理に説得せず、次の食事の約束に切り替えます。"
+      },
+      {
+        id: "meal-b", name: "次の食事の約束を紙に書く",
+        why: "「夕ご飯は6時」という約束は、言葉で伝えても記憶に残りません。でも紙に書いて見える場所に置けば、本人が不安になるたびに自分の目で確認できます。家族が何度も同じ説明を繰り返さなくて済むので、声が荒れるきっかけ自体が減ります。",
+        how: "紙に大きく「夕ご飯は6時です」と書いて、本人の目線の高さに貼ります。聞かれたら言葉で返さず、「ここ見て」と紙を指すだけに統一するのがポイント。家族の誰が対応しても同じ返しになるので、本人の混乱も減ります。",
+        scene: "夕方になると何度も「ご飯は？」と聞かれる場面。最初は紙を指してもピンとこないことがありますが、数日続けると、自分から紙を見に行くようになるケースがよく見られます。"
+      },
+      {
+        id: "meal-c", name: "空腹以外の訴えに置き換える",
+        why: "「ご飯まだ？」の裏には、空腹だけでなく、不安や退屈、手持ち無沙汰が混ざっていることがあります。本当の訴えは「何かしてほしい」「そばにいてほしい」。そこに応えると、食事そのものへのこだわりがほどけていきます。",
+        how: "まず温かいお茶と小さなおやつを出して、「ご飯は6時だから、それまでこれで待とうね」と“待つ時間”に形を与えます。食べ物でごまかすのではなく、口と手を動かす小さな用事を作るイメージです。テレビや写真など、次の関心もそっと用意します。",
+        scene: "昼食後すぐにお腹がすいたと言う場面。お茶と小さな菓子を出すと、その場は落ち着き、次に聞かれるまでの間隔が空くことがよくあります。満腹感ではなく「満たされた感覚」が効いているのです。"
+      }
+    ]
+  },
+  bath: {
+    label: "入浴",
+    tips: [
+      {
+        id: "bath-a", name: "「お風呂」という言葉を使わない",
+        why: "お風呂を嫌がる人の多くは、水や湯が嫌なのではなく、「お風呂」という言葉を聞いた瞬間に身構えるスイッチが入っています。裸になる、体を洗われる、寒い、面倒——その記憶の束が一気に立ち上がるからです。入り口の言葉を変えると、拒否する理由そのものが消えることがあります。",
+        how: "誘う時は「足湯だけしよう」「さっぱりしよう」「温まろう」と、別の言葉に置き換えます。「足湯」と言いながら洗面器にお湯を張り、足だけつけてもらう。心地よさが分かると、「ついでに体も」が通りやすくなります。本番の入浴は、入口の一歩の先にあります。",
+        scene: "「お風呂入ろう」の一言で顔が曇る場面。足湯から始めたら気持ちよさそうに目を細め、そのままシャワーまで進めた、という流れは現場でもよく見られます。"
+      },
+      {
+        id: "bath-b", name: "先に入って感想を聞かせる",
+        why: "本人にとってお風呂場は「何をされるか分からない場所」。不安がある所には行きたくありません。家族が先に入って「気持ちよかった〜」と聞かせることで、お風呂場は“安全で気持ちいい場所”に書き換わります。説得ではなく、空気を先に作る方法です。",
+        how: "家族が先に入浴を済ませ、髪を乾かしながら「今日のお湯、ちょうどよかったよ」と感想を聞かせます。ポイントは、誘いの言葉をすぐ続けないこと。感想だけを置いて、本人から「私も入ろうかな」が出るのを待ちます。出なければ、その日は無理に進めません。",
+        scene: "何日も入浴を拒む場面。家族の「気持ちよかった」を数日聞くうちに、自分から「私も入る」と言い出すことがあります。急がせない日を挟むことが、結果的に近道になるのです。"
+      },
+      {
+        id: "bath-c", name: "用事の名目で誘う",
+        why: "大人のプライドとして、「裸を見せる」「体を洗ってもらう」こと自体への抵抗が強い人は少なくありません。それが介助ではなく「確認の用事」になれば、話は別です。用事のついでなら、抵抗の理由が立ちにくくなります。",
+        how: "「背中に湿疹が出ていないか見せてほしい」「足のむくみを確認したい」と、確認の用事を名目に脱衣所へ誘います。洗う行為も「ついでに流そうか」と添える形にすると、本人は“洗われている”のではなく“ついで”で済みます。用事→ついでの順番が大切です。",
+        scene: "「人前で裸になるなんて」と強く拒む場面。「背中を見せて」の一言で脱衣までは進み、その流れで体を流せた、という進み方はよくあります。最初から全部を目指さないのがコツです。"
+      }
+    ]
+  },
+  home: {
+    label: "帰宅願望",
+    tips: [
+      {
+        id: "home-a", name: "帰りたい気持ちを否定しない",
+        why: "「家に帰りたい」の“家”は、今いる場所ではない、安心できた記憶の中の家です。「ここが家だよ」と否定されると、本人は「分かってもらえない」と感じ、不安と対立が強まります。逆に「帰りたいよね」と受け止められると、気持ちのピークはそこで過ぎていくことが多いのです。",
+        how: "まず「帰りたいよね」と、本人の言葉をそのまま返します。理由を問いただしたり、正したりはしません。そのあと「どうして帰りたいの？」ではなく「家では何してたの？」と、記憶の方へ静かに寄せていくのがコツです。受け止めが先、話題の移動はその後です。",
+        scene: "夕方になると落ち着かなくなり「帰る」と言い出す場面。「帰りたいよね、ご飯の支度しなきゃって思うんだね」と受け止めると、少しずつ声のトーンが下がっていくことがよくあります。"
+      },
+      {
+        id: "home-b", name: "帰る前の小さな用事を作る",
+        why: "「帰りたい」という気持ちは、波のように高まっては引いていきます。大事なのは、波のピークの時間に何をするか。「お茶を飲んでからにしよう」という小さな区切りは、引き止めではなく、気持ちが落ち着くまでの時間を作る技術です。その間に波が引けば、本人も「また今度」で納得できます。",
+        how: "「帰る前に、お茶だけ飲んでいって」と、短時間で終わる小さな用事を1つだけ置きます。お茶を飲み終えたら、また波を見ます。引いていなければ、次の小さな用事（手紙を見る、写真を見る）をもう1つ。用事を積み重ねるのではなく、波の様子を見るための区切りとして使います。",
+        scene: "玄関まで行って靴を履こうとする場面。「出かける前にトイレだけ」と区切ると、その間に気持ちが切り替わり、居間に戻って座り直すことがよくあります。"
+      },
+      {
+        id: "home-c", name: "昔の家の話を聞く",
+        why: "帰りたい家は、実家や若い頃の家など、記憶の中でいちばん安心できた場所です。その話をたっぷり聞いてもらえると、「帰らなくても、ここで分かってもらえた」という感覚が生まれます。語っているうちに、気持ちが“昔”から“今ここ”へ戻ってくるのです。",
+        how: "「昔の家は、どんな間取りだったの？」「台所はどこにあったの？」と、具体的な情景を聞きます。答えを正す必要はなく、相づちで十分です。話が弾んできたら、その流れで「じゃあ、お茶にしようか」と今の時間へ橋をかけます。聞く時間が、そのまま落ち着く時間になります。",
+        scene: "「実家に帰る」と繰り返す場面。実家の話を15分ほど聞いたあと、「話してくれてありがとう」と言うと、本人から「今日はもういいか」と言葉が出ることがあります。"
+      }
+    ]
+  }
+};
+
+var sceneSel = document.getElementById('scene');
+var tipCard = document.getElementById('tipCard');
+var tipList = document.getElementById('tipList');
+var pwCard = document.getElementById('pwCard');
+var pwInput = document.getElementById('pw');
+var errBox = document.getElementById('err');
+var deep = document.getElementById('deep');
+var selectedTip = null;
+var selectedSceneLabel = '';
+
+sceneSel.addEventListener('change', function () {
+  var key = sceneSel.value;
+  selectedTip = null;
+  deep.style.display = 'none';
+  errBox.style.display = 'none';
+  pwInput.value = '';
+  if (!key) {
+    tipCard.classList.add('hidden');
+    pwCard.classList.add('hidden');
+    return;
+  }
+  selectedSceneLabel = DATA[key].label;
+  tipList.innerHTML = '';
+  DATA[key].tips.forEach(function (tip) {
+    var label = document.createElement('label');
+    label.className = 'tip-option';
+    var radio = document.createElement('input');
+    radio.type = 'radio';
+    radio.name = 'tip';
+    radio.value = tip.id;
+    radio.addEventListener('change', function () {
+      selectedTip = tip;
+      var opts = tipList.querySelectorAll('.tip-option');
+      for (var i = 0; i < opts.length; i++) opts[i].classList.remove('selected');
+      label.classList.add('selected');
+      pwCard.classList.remove('hidden');
+      deep.style.display = 'none';
+      errBox.style.display = 'none';
+    });
+    var span = document.createElement('span');
+    span.className = 'tip-name';
+    span.textContent = tip.name;
+    label.appendChild(radio);
+    label.appendChild(span);
+    tipList.appendChild(label);
+  });
+  tipCard.classList.remove('hidden');
+  pwCard.classList.add('hidden');
+});
+
+document.getElementById('openBtn').addEventListener('click', function () {
+  if (!selectedTip) return;
+  if (pwInput.value === 'koekake') {
+    errBox.style.display = 'none';
+    document.getElementById('deepScene').textContent = '場面：' + selectedSceneLabel;
+    document.getElementById('deepTitle').textContent = selectedTip.name;
+    document.getElementById('deepWhy').textContent = selectedTip.why;
+    document.getElementById('deepHow').textContent = selectedTip.how;
+    document.getElementById('deepCase').textContent = selectedTip.scene;
+    deep.style.display = 'block';
+    deep.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } else {
+    deep.style.display = 'none';
+    errBox.style.display = 'block';
+  }
+});
+</script>
+</body>
+</html>
