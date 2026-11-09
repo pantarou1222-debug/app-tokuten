@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>アプリ購入者限定特典【通常購入版】｜動画パック「コロコロタウン厳選」</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Hiragino Sans','Noto Sans JP',sans-serif; background:#FFF6E6; color:#3C322A; }
+.wrap { max-width:560px; margin:0 auto; padding:0 14px 40px; }
+.pname { background:#4A2C1A; color:#FFF6E6; text-align:center; font-weight:800; font-size:17px; padding:13px 10px; border-radius:0 0 14px 14px; }
+h2.band { background:#4A2C1A; color:#FFF6E6; border-radius:14px; padding:16px; margin:18px 0 12px; font-size:20px; }
+h2.band small { display:block; color:#F0D6AF; font-size:12px; margin-top:4px; }
+.note { font-size:12.5px; color:#8A7358; margin:8px 2px; line-height:1.6; }
+.progress { background:#fff; border-radius:14px; padding:14px 16px; margin:12px 0; }
+.progress .ptxt { font-weight:800; color:#4A2C1A; font-size:16px; margin-bottom:8px; }
+.bar { height:12px; background:#EADFC8; border-radius:999px; overflow:hidden; }
+.bar div { height:100%; background:#00897B; width:0%; transition:width .3s; }
+.playerbox { position:sticky; top:0; z-index:20; background:#FFF6E6; padding:10px 0 10px; }
+#nowtitle { font-weight:800; color:#4A2C1A; font-size:15.5px; line-height:1.55; margin:2px 2px 8px; }
+video { width:100%; aspect-ratio:9/16; max-height:62vh; background:#140D08; border-radius:12px; display:block; }
+.cat-band { background:#4A2C1A; color:#FFF6E6; border-radius:12px; padding:14px 16px; margin:30px 0 6px; font-size:18px; font-weight:800; display:flex; align-items:center; flex-wrap:wrap; gap:8px; }
+.done-badge { background:#00897B; color:#fff; border-radius:999px; padding:2px 12px; font-size:12.5px; font-weight:800; }
+.item { display:flex; align-items:center; gap:10px; width:100%; text-align:left; font-family:inherit; background:#FFFDF7; border:1.5px solid #DEC8AA; border-left:5px solid #00897B; border-radius:10px; box-shadow:0 1px 3px rgba(74,44,26,.12); padding:13px 12px; margin:8px 0; font-size:15px; line-height:1.55; color:#3C322A; cursor:pointer; min-height:54px; -webkit-tap-highlight-color:transparent; }
+.item:active { background:#FFF3D6; }
+.item.playing { outline:2.5px solid #C62828; }
+.chip { background:#C62828; color:#fff; border-radius:999px; padding:2px 10px; font-size:12.5px; font-weight:800; white-space:nowrap; flex:none; }
+.word { font-weight:700; color:#4A2C1A; }
+.watched-mark { color:#00897B; font-weight:800; white-space:nowrap; margin-left:auto; flex:none; font-size:13.5px; }
+.sec { background:#fff; border-radius:14px; padding:18px 16px; margin:26px 0 12px; line-height:1.75; font-size:15px; text-align:center; }
+.sec h3 { color:#C62828; font-size:19px; margin-bottom:8px; }
+.resetwrap { text-align:center; margin:26px 0 4px; }
+#resetbtn { background:none; border:1px solid #B4A48F; color:#8A7358; border-radius:10px; padding:9px 16px; font-size:13px; font-family:inherit; cursor:pointer; }
+.foot { font-size:12.5px; color:#8A7358; margin:14px 2px 0; line-height:1.7; }
+</style></head><body><div class="wrap">
+<div class="pname">アプリ購入者限定特典【通常購入版】</div>
+<h2 class="band">動画パック「コロコロタウン厳選」<small>「親の言葉 翻訳表」から厳選した81場面を、会話＋解説の動画で｜コロコロタウン</small></h2>
+<p class="note">見たい場面をタップすると、上部のプレイヤーで再生されます。最後まで見終わると「視聴済み」がつきます（何度でも見直せます）。<br>視聴済みの記録は、この端末のこのブラウザに保存されます。</p>
+<div class="progress"><div class="ptxt">視聴済み <span id="pcount">0</span> / 81</div><div class="bar"><div id="pfill"></div></div></div>
+<div class="playerbox"><div id="nowtitle">下の一覧から、見たい場面を選んでください</div><video id="player" controls playsinline preload="none"></video></div>
+<div class="cat"><div class="cat-band">食事<span class="done-badge" style="display:none">✓ 完了</span></div>
+<button type="button" class="item" data-id="meal-1" data-src="videos-regular/gensen-regular-meal-1-2026-11-09.mp4" data-title="食事 第1位"><span class="chip">第1位</span><span class="word">ご飯まだ？（食べた直後でも言う）</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="meal-2" data-src="videos-regular/gensen-regular-meal-2-2026-11-09.mp4" data-title="食事 第2位"><span class="chip">第2位</span><span class="word">もう食べた（まだ食べていない）</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="meal-3" data-src="videos-regular/gensen-regular-meal-3-2026-11-09.mp4" data-title="食事 第3位"><span class="chip">第3位</span><span class="word">食べたくない</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+</div>
+<div class="cat"><div class="cat-band">入浴<span class="done-badge" style="display:none">✓ 完了</span></div>
+<button type="button" class="item" data-id="bath-1" data-src="videos-regular/gensen-regular-bath-1-2026-11-09.mp4" data-title="入浴 第1位"><span class="chip">第1位</span><span class="word">もう入った（実際は入っていない）</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="bath-2" data-src="videos-regular/gensen-regular-bath-2-2026-11-09.mp4" data-title="入浴 第2位"><span class="chip">第2位</span><span class="word">後で入る（先延ばしを繰り返す）</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="bath-3" data-src="videos-regular/gensen-regular-bath-3-2026-11-09.mp4" data-title="入浴 第3位"><span class="chip">第3位</span><span class="word">面倒くさい</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+</div>
+<div class="cat"><div class="cat-band">排泄<span class="done-badge" style="display:none">✓ 完了</span></div>
+<button type="button" class="item" data-id="haisetsu-1" data-src="videos-regular/gensen-regular-haisetsu-1-2026-11-09.mp4" data-title="排泄 第1位"><span class="chip">第1位</span><span class="word">おむつ・パッドを嫌がる</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="haisetsu-2" data-src="videos-regular/gensen-regular-haisetsu-2-2026-11-09.mp4" data-title="排泄 第2位"><span class="chip">第2位</span><span class="word">夜中に何度もトイレに起きる</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="haisetsu-3" data-src="videos-regular/gensen-regular-haisetsu-3-2026-11-09.mp4" data-title="排泄 第3位"><span class="chip">第3位</span><span class="word">間に合わず漏らしても黙っている</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+</div>
+<div class="cat"><div class="cat-band">起床<span class="done-badge" style="display:none">✓ 完了</span></div>
+<button type="button" class="item" data-id="kishou-1" data-src="videos-regular/gensen-regular-kishou-1-2026-11-09.mp4" data-title="起床 第1位"><span class="chip">第1位</span><span class="word">朝、起きたくないと言う</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="kishou-2" data-src="videos-regular/gensen-regular-kishou-2-2026-11-09.mp4" data-title="起床 第2位"><span class="chip">第2位</span><span class="word">「今日は何曜日？」と毎朝聞く</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="kishou-3" data-src="videos-regular/gensen-regular-kishou-3-2026-11-09.mp4" data-title="起床 第3位"><span class="chip">第3位</span><span class="word">朝から同じ質問を繰り返す</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+</div>
+<div class="cat"><div class="cat-band">就寝<span class="done-badge" style="display:none">✓ 完了</span></div>
+<button type="button" class="item" data-id="shuushin-1" data-src="videos-regular/gensen-regular-shuushin-1-2026-11-09.mp4" data-title="就寝 第1位"><span class="chip">第1位</span><span class="word">夜中に起きて歩き回る</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="shuushin-2" data-src="videos-regular/gensen-regular-shuushin-2-2026-11-09.mp4" data-title="就寝 第2位"><span class="chip">第2位</span><span class="word">寝る時間なのに寝たがらない</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="shuushin-3" data-src="videos-regular/gensen-regular-shuushin-3-2026-11-09.mp4" data-title="就寝 第3位"><span class="chip">第3位</span><span class="word">夜に「家に帰る」と言い出す</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+</div>
+<div class="cat"><div class="cat-band">外出<span class="done-badge" style="display:none">✓ 完了</span></div>
+<button type="button" class="item" data-id="gaishutsu-1" data-src="videos-regular/gensen-regular-gaishutsu-1-2026-11-09.mp4" data-title="外出 第1位"><span class="chip">第1位</span><span class="word">外出先で「帰りたい」を繰り返す</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="gaishutsu-2" data-src="videos-regular/gensen-regular-gaishutsu-2-2026-11-09.mp4" data-title="外出 第2位"><span class="chip">第2位</span><span class="word">外出を嫌がる・行きたくない</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="gaishutsu-3" data-src="videos-regular/gensen-regular-gaishutsu-3-2026-11-09.mp4" data-title="外出 第3位"><span class="chip">第3位</span><span class="word">出かける準備に時間がかかる</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+</div>
+<div class="cat"><div class="cat-band">買い物<span class="done-badge" style="display:none">✓ 完了</span></div>
+<button type="button" class="item" data-id="kaimono-1" data-src="videos-regular/gensen-regular-kaimono-1-2026-11-09.mp4" data-title="買い物 第1位"><span class="chip">第1位</span><span class="word">同じものを何度も買ってくる</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="kaimono-2" data-src="videos-regular/gensen-regular-kaimono-2-2026-11-09.mp4" data-title="買い物 第2位"><span class="chip">第2位</span><span class="word">レジで財布を探し続けて焦る</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="kaimono-3" data-src="videos-regular/gensen-regular-kaimono-3-2026-11-09.mp4" data-title="買い物 第3位"><span class="chip">第3位</span><span class="word">毎日買い物に行きたがる</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+</div>
+<div class="cat"><div class="cat-band">通院<span class="done-badge" style="display:none">✓ 完了</span></div>
+<button type="button" class="item" data-id="tsuuin-1" data-src="videos-regular/gensen-regular-tsuuin-1-2026-11-09.mp4" data-title="通院 第1位"><span class="chip">第1位</span><span class="word">「どこも悪くない」と受診を拒む</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="tsuuin-2" data-src="videos-regular/gensen-regular-tsuuin-2-2026-11-09.mp4" data-title="通院 第2位"><span class="chip">第2位</span><span class="word">待合室で何度も「まだ？」と聞く</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="tsuuin-3" data-src="videos-regular/gensen-regular-tsuuin-3-2026-11-09.mp4" data-title="通院 第3位"><span class="chip">第3位</span><span class="word">診察室で急にしっかり話す</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+</div>
+<div class="cat"><div class="cat-band">服薬<span class="done-badge" style="display:none">✓ 完了</span></div>
+<button type="button" class="item" data-id="fukuyaku-1" data-src="videos-regular/gensen-regular-fukuyaku-1-2026-11-09.mp4" data-title="服薬 第1位"><span class="chip">第1位</span><span class="word">飲んだのに「まだ飲んでない」と言う</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="fukuyaku-2" data-src="videos-regular/gensen-regular-fukuyaku-2-2026-11-09.mp4" data-title="服薬 第2位"><span class="chip">第2位</span><span class="word">「こんなにいらない」と薬を拒む</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="fukuyaku-3" data-src="videos-regular/gensen-regular-fukuyaku-3-2026-11-09.mp4" data-title="服薬 第3位"><span class="chip">第3位</span><span class="word">飲んだふりをして後で吐き出す</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+</div>
+<div class="cat"><div class="cat-band">お金・金銭管理<span class="done-badge" style="display:none">✓ 完了</span></div>
+<button type="button" class="item" data-id="okane-1" data-src="videos-regular/gensen-regular-okane-1-2026-11-09.mp4" data-title="お金・金銭管理 第1位"><span class="chip">第1位</span><span class="word">通帳がない・誰か盗ったと言う</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="okane-2" data-src="videos-regular/gensen-regular-okane-2-2026-11-09.mp4" data-title="お金・金銭管理 第2位"><span class="chip">第2位</span><span class="word">「お金がない」が口ぐせ</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="okane-3" data-src="videos-regular/gensen-regular-okane-3-2026-11-09.mp4" data-title="お金・金銭管理 第3位"><span class="chip">第3位</span><span class="word">お金を隠して場所を忘れる</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+</div>
+<div class="cat"><div class="cat-band">デイ・サービスを嫌がる時<span class="done-badge" style="display:none">✓ 完了</span></div>
+<button type="button" class="item" data-id="day-1" data-src="videos-regular/gensen-regular-day-1-2026-11-09.mp4" data-title="デイ・サービスを嫌がる時 第1位"><span class="chip">第1位</span><span class="word">デイサービスに行きたくないと言う</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="day-2" data-src="videos-regular/gensen-regular-day-2-2026-11-09.mp4" data-title="デイ・サービスを嫌がる時 第2位"><span class="chip">第2位</span><span class="word">行けば楽しそうなのに朝だけ拒否する</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="day-3" data-src="videos-regular/gensen-regular-day-3-2026-11-09.mp4" data-title="デイ・サービスを嫌がる時 第3位"><span class="chip">第3位</span><span class="word">朝になると体調が悪いと言い出す</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+</div>
+<div class="cat"><div class="cat-band">車の運転・免許返納<span class="done-badge" style="display:none">✓ 完了</span></div>
+<button type="button" class="item" data-id="unten-1" data-src="videos-regular/gensen-regular-unten-1-2026-11-09.mp4" data-title="車の運転・免許返納 第1位"><span class="chip">第1位</span><span class="word">まだ運転できると言い張る</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="unten-2" data-src="videos-regular/gensen-regular-unten-2-2026-11-09.mp4" data-title="車の運転・免許返納 第2位"><span class="chip">第2位</span><span class="word">免許返納を勧めると怒り出す</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="unten-3" data-src="videos-regular/gensen-regular-unten-3-2026-11-09.mp4" data-title="車の運転・免許返納 第3位"><span class="chip">第3位</span><span class="word">近所だけなら大丈夫と言う</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+</div>
+<div class="cat"><div class="cat-band">幻覚・幻視<span class="done-badge" style="display:none">✓ 完了</span></div>
+<button type="button" class="item" data-id="genkaku-1" data-src="videos-regular/gensen-regular-genkaku-1-2026-11-09.mp4" data-title="幻覚・幻視 第1位"><span class="chip">第1位</span><span class="word">部屋に知らない人がいると言う</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="genkaku-2" data-src="videos-regular/gensen-regular-genkaku-2-2026-11-09.mp4" data-title="幻覚・幻視 第2位"><span class="chip">第2位</span><span class="word">亡くなった配偶者が来たと言う</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="genkaku-3" data-src="videos-regular/gensen-regular-genkaku-3-2026-11-09.mp4" data-title="幻覚・幻視 第3位"><span class="chip">第3位</span><span class="word">虫がいる・這っていると言う</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+</div>
+<div class="cat"><div class="cat-band">着替え・身だしなみ<span class="done-badge" style="display:none">✓ 完了</span></div>
+<button type="button" class="item" data-id="kigae-1" data-src="videos-regular/gensen-regular-kigae-1-2026-11-09.mp4" data-title="着替え・身だしなみ 第1位"><span class="chip">第1位</span><span class="word">同じ服を毎日着たがる</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="kigae-2" data-src="videos-regular/gensen-regular-kigae-2-2026-11-09.mp4" data-title="着替え・身だしなみ 第2位"><span class="chip">第2位</span><span class="word">汚れた服を着替えようとしない</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="kigae-3" data-src="videos-regular/gensen-regular-kigae-3-2026-11-09.mp4" data-title="着替え・身だしなみ 第3位"><span class="chip">第3位</span><span class="word">季節外れの服を選ぶ（家の中で）</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+</div>
+<div class="cat"><div class="cat-band">夕方〜夜の不穏<span class="done-badge" style="display:none">✓ 完了</span></div>
+<button type="button" class="item" data-id="yugata-1" data-src="videos-regular/gensen-regular-yugata-1-2026-11-09.mp4" data-title="夕方〜夜の不穏 第1位"><span class="chip">第1位</span><span class="word">夕方になるとソワソワ落ち着かない</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="yugata-2" data-src="videos-regular/gensen-regular-yugata-2-2026-11-09.mp4" data-title="夕方〜夜の不穏 第2位"><span class="chip">第2位</span><span class="word">夕方だけ「家に帰りたい」と言い出す</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="yugata-3" data-src="videos-regular/gensen-regular-yugata-3-2026-11-09.mp4" data-title="夕方〜夜の不穏 第3位"><span class="chip">第3位</span><span class="word">夕方に怒りっぽくなる</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+</div>
+<div class="cat"><div class="cat-band">火の元・家事<span class="done-badge" style="display:none">✓ 完了</span></div>
+<button type="button" class="item" data-id="hinomoto-1" data-src="videos-regular/gensen-regular-hinomoto-1-2026-11-09.mp4" data-title="火の元・家事 第1位"><span class="chip">第1位</span><span class="word">ガスコンロをつけっぱなしにする</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="hinomoto-2" data-src="videos-regular/gensen-regular-hinomoto-2-2026-11-09.mp4" data-title="火の元・家事 第2位"><span class="chip">第2位</span><span class="word">鍋を焦がしてしまう</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="hinomoto-3" data-src="videos-regular/gensen-regular-hinomoto-3-2026-11-09.mp4" data-title="火の元・家事 第3位"><span class="chip">第3位</span><span class="word">リモコンを押して混乱する</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+</div>
+<div class="cat"><div class="cat-band">徘徊【屋内型】<span class="done-badge" style="display:none">✓ 完了</span></div>
+<button type="button" class="item" data-id="haikai-in-1" data-src="videos-regular/gensen-regular-haikai-in-1-2026-11-09.mp4" data-title="徘徊【屋内型】 第1位"><span class="chip">第1位</span><span class="word">家の中をずっと歩き回る</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="haikai-in-2" data-src="videos-regular/gensen-regular-haikai-in-2-2026-11-09.mp4" data-title="徘徊【屋内型】 第2位"><span class="chip">第2位</span><span class="word">家族の後をついて歩く</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="haikai-in-3" data-src="videos-regular/gensen-regular-haikai-in-3-2026-11-09.mp4" data-title="徘徊【屋内型】 第3位"><span class="chip">第3位</span><span class="word">タンスや引き出しを全部開ける</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+</div>
+<div class="cat"><div class="cat-band">徘徊【屋外型】<span class="done-badge" style="display:none">✓ 完了</span></div>
+<button type="button" class="item" data-id="haikai-out-1" data-src="videos-regular/gensen-regular-haikai-out-1-2026-11-09.mp4" data-title="徘徊【屋外型】 第1位"><span class="chip">第1位</span><span class="word">「家に帰る」と言って外に出ようとする</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="haikai-out-2" data-src="videos-regular/gensen-regular-haikai-out-2-2026-11-09.mp4" data-title="徘徊【屋外型】 第2位"><span class="chip">第2位</span><span class="word">出かけて帰り道が分からなくなる</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="haikai-out-3" data-src="videos-regular/gensen-regular-haikai-out-3-2026-11-09.mp4" data-title="徘徊【屋外型】 第3位"><span class="chip">第3位</span><span class="word">行方不明になって探した経験がある</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+</div>
+<div class="cat"><div class="cat-band">物盗られ妄想<span class="done-badge" style="display:none">✓ 完了</span></div>
+<button type="button" class="item" data-id="nusumare-1" data-src="videos-regular/gensen-regular-nusumare-1-2026-11-09.mp4" data-title="物盗られ妄想 第1位"><span class="chip">第1位</span><span class="word">「財布がない！盗られた！」と騒ぐ</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="nusumare-2" data-src="videos-regular/gensen-regular-nusumare-2-2026-11-09.mp4" data-title="物盗られ妄想 第2位"><span class="chip">第2位</span><span class="word">家族を名指しで「あんたが盗った」と言う</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="nusumare-3" data-src="videos-regular/gensen-regular-nusumare-3-2026-11-09.mp4" data-title="物盗られ妄想 第3位"><span class="chip">第3位</span><span class="word">自分で隠した場所から見つかる</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+</div>
+<div class="cat"><div class="cat-band">身内の顔が分からなくなった時<span class="done-badge" style="display:none">✓ 完了</span></div>
+<button type="button" class="item" data-id="kao-1" data-src="videos-regular/gensen-regular-kao-1-2026-11-09.mp4" data-title="身内の顔が分からなくなった時 第1位"><span class="chip">第1位</span><span class="word">「あなた、誰？」と聞かれる</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="kao-2" data-src="videos-regular/gensen-regular-kao-2-2026-11-09.mp4" data-title="身内の顔が分からなくなった時 第2位"><span class="chip">第2位</span><span class="word">「娘はどこ？」と目の前の娘に聞く</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="kao-3" data-src="videos-regular/gensen-regular-kao-3-2026-11-09.mp4" data-title="身内の顔が分からなくなった時 第3位"><span class="chip">第3位</span><span class="word">息子を夫と間違える</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+</div>
+<div class="cat"><div class="cat-band">嫌だと発言がある時<span class="done-badge" style="display:none">✓ 完了</span></div>
+<button type="button" class="item" data-id="iya-1" data-src="videos-regular/gensen-regular-iya-1-2026-11-09.mp4" data-title="嫌だと発言がある時 第1位"><span class="chip">第1位</span><span class="word">「嫌だ」と何を勧めても言う</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="iya-2" data-src="videos-regular/gensen-regular-iya-2-2026-11-09.mp4" data-title="嫌だと発言がある時 第2位"><span class="chip">第2位</span><span class="word">「放っておいて」と言う</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="iya-3" data-src="videos-regular/gensen-regular-iya-3-2026-11-09.mp4" data-title="嫌だと発言がある時 第3位"><span class="chip">第3位</span><span class="word">「帰る」の一点張り</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+</div>
+<div class="cat"><div class="cat-band">無言のまま何も言わない時<span class="done-badge" style="display:none">✓ 完了</span></div>
+<button type="button" class="item" data-id="mugon-1" data-src="videos-regular/gensen-regular-mugon-1-2026-11-09.mp4" data-title="無言のまま何も言わない時 第1位"><span class="chip">第1位</span><span class="word">呼びかけても返事がない</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="mugon-2" data-src="videos-regular/gensen-regular-mugon-2-2026-11-09.mp4" data-title="無言のまま何も言わない時 第2位"><span class="chip">第2位</span><span class="word">質問されると黙り込む</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="mugon-3" data-src="videos-regular/gensen-regular-mugon-3-2026-11-09.mp4" data-title="無言のまま何も言わない時 第3位"><span class="chip">第3位</span><span class="word">うなずくだけで言葉がない</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+</div>
+<div class="cat"><div class="cat-band">想定外の行動を起こす時<span class="done-badge" style="display:none">✓ 完了</span></div>
+<button type="button" class="item" data-id="souteigai-1" data-src="videos-regular/gensen-regular-souteigai-1-2026-11-09.mp4" data-title="想定外の行動を起こす時 第1位"><span class="chip">第1位</span><span class="word">物を集めてあちこちに隠す</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="souteigai-2" data-src="videos-regular/gensen-regular-souteigai-2-2026-11-09.mp4" data-title="想定外の行動を起こす時 第2位"><span class="chip">第2位</span><span class="word">突然泣き出す</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="souteigai-3" data-src="videos-regular/gensen-regular-souteigai-3-2026-11-09.mp4" data-title="想定外の行動を起こす時 第3位"><span class="chip">第3位</span><span class="word">人前で服を脱ぎだす</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+</div>
+<div class="cat"><div class="cat-band">迷子になった時<span class="done-badge" style="display:none">✓ 完了</span></div>
+<button type="button" class="item" data-id="maigo-1" data-src="videos-regular/gensen-regular-maigo-1-2026-11-09.mp4" data-title="迷子になった時 第1位"><span class="chip">第1位</span><span class="word">「散歩に行く」と言って帰ってこない</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="maigo-2" data-src="videos-regular/gensen-regular-maigo-2-2026-11-09.mp4" data-title="迷子になった時 第2位"><span class="chip">第2位</span><span class="word">「家に帰る」と言って知らない方向へ歩く</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="maigo-3" data-src="videos-regular/gensen-regular-maigo-3-2026-11-09.mp4" data-title="迷子になった時 第3位"><span class="chip">第3位</span><span class="word">警察に保護され「悪いことしてない」と怯える</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+</div>
+<div class="cat"><div class="cat-band">泥棒・万引きと間違われてしまう時<span class="done-badge" style="display:none">✓ 完了</span></div>
+<button type="button" class="item" data-id="dorobou-1" data-src="videos-regular/gensen-regular-dorobou-1-2026-11-09.mp4" data-title="泥棒・万引きと間違われてしまう時 第1位"><span class="chip">第1位</span><span class="word">お店で商品をポケットやバッグに入れてしまう</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="dorobou-2" data-src="videos-regular/gensen-regular-dorobou-2-2026-11-09.mp4" data-title="泥棒・万引きと間違われてしまう時 第2位"><span class="chip">第2位</span><span class="word">レジを通らずに店を出ようとする</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="dorobou-3" data-src="videos-regular/gensen-regular-dorobou-3-2026-11-09.mp4" data-title="泥棒・万引きと間違われてしまう時 第3位"><span class="chip">第3位</span><span class="word">「お金は払った」と言い張る</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+</div>
+<div class="cat"><div class="cat-band">コミュニケーションが成立しない時【認知症の影響版】<span class="done-badge" style="display:none">✓ 完了</span></div>
+<button type="button" class="item" data-id="comm-ninchi-1" data-src="videos-regular/gensen-regular-comm-ninchi-1-2026-11-09.mp4" data-title="コミュニケーションが成立しない時【認知症の影響版】 第1位"><span class="chip">第1位</span><span class="word">同じ質問を繰り返す（今日は何日？など）</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="comm-ninchi-2" data-src="videos-regular/gensen-regular-comm-ninchi-2-2026-11-09.mp4" data-title="コミュニケーションが成立しない時【認知症の影響版】 第2位"><span class="chip">第2位</span><span class="word">同じ話を何度も繰り返す</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="comm-ninchi-3" data-src="videos-regular/gensen-regular-comm-ninchi-3-2026-11-09.mp4" data-title="コミュニケーションが成立しない時【認知症の影響版】 第3位"><span class="chip">第3位</span><span class="word">言葉が出てこず「あれ、あれ」と繰り返す</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+</div>
+<div class="cat"><div class="cat-band">コミュニケーションが成立しない時【身体面】<span class="done-badge" style="display:none">✓ 完了</span></div>
+<button type="button" class="item" data-id="comm-karada-1" data-src="videos-regular/gensen-regular-comm-karada-1-2026-11-09.mp4" data-title="コミュニケーションが成立しない時【身体面】 第1位"><span class="chip">第1位</span><span class="word">うなずくが、本当に分かっているか分からない</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="comm-karada-2" data-src="videos-regular/gensen-regular-comm-karada-2-2026-11-09.mp4" data-title="コミュニケーションが成立しない時【身体面】 第2位"><span class="chip">第2位</span><span class="word">口を固く閉じる（食事・服薬の時）</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+<button type="button" class="item" data-id="comm-karada-3" data-src="videos-regular/gensen-regular-comm-karada-3-2026-11-09.mp4" data-title="コミュニケーションが成立しない時【身体面】 第3位"><span class="chip">第3位</span><span class="word">涙ぐむ・涙が流れる</span><span class="watched-mark" style="display:none">✓ 視聴済み</span></button>
+</div>
+<div class="sec" id="complete" style="display:none"><h3>🎉 全81本コンプリート！</h3><p>コンプリート特典のご案内は、準備ができ次第こちらに表示されます。</p></div>
+<div class="resetwrap"><button id="resetbtn" type="button">視聴済みの記録をリセット</button></div>
+<p class="foot">アプリ「介護家族の声掛け寄り添いパートナー」購入者限定特典。あなたの家の場面に合わせた声かけは、アプリで作れます。</p>
+</div>
+<script>
+var KEY = 'gensen-watched-regular-v1';
+var TOTAL = 81;
+var watched = {};
+try { (JSON.parse(localStorage.getItem(KEY) || '[]')).forEach(function(id){ watched[id] = 1; }); } catch(e) {}
+var player = document.getElementById('player');
+var nowtitle = document.getElementById('nowtitle');
+var currentId = null;
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(Object.keys(watched))); } catch(e){} }
+function refresh(){
+  var ids = Object.keys(watched);
+  document.getElementById('pcount').textContent = ids.length;
+  document.getElementById('pfill').style.width = (ids.length / TOTAL * 100) + '%';
+  document.querySelectorAll('.item').forEach(function(b){
+    var on = !!watched[b.getAttribute('data-id')];
+    b.querySelector('.watched-mark').style.display = on ? '' : 'none';
+  });
+  document.querySelectorAll('.cat').forEach(function(sec){
+    var done = true;
+    sec.querySelectorAll('.item').forEach(function(b){ if(!watched[b.getAttribute('data-id')]) done = false; });
+    sec.querySelector('.done-badge').style.display = done ? '' : 'none';
+  });
+  document.getElementById('complete').style.display = (ids.length >= TOTAL) ? '' : 'none';
+}
+document.querySelectorAll('.item').forEach(function(b){
+  b.addEventListener('click', function(){
+    document.querySelectorAll('.item.playing').forEach(function(x){ x.classList.remove('playing'); });
+    b.classList.add('playing');
+    currentId = b.getAttribute('data-id');
+    nowtitle.textContent = b.getAttribute('data-title');
+    player.src = b.getAttribute('data-src');
+    player.load();
+    var p = player.play(); if (p && p.catch) { p.catch(function(){}); }
+  });
+});
+player.addEventListener('ended', function(){
+  if (currentId) { watched[currentId] = 1; save(); refresh(); }
+});
+document.getElementById('resetbtn').addEventListener('click', function(){
+  if (confirm('視聴済みの記録をリセットしますか？')) { watched = {}; save(); refresh(); }
+});
+refresh();
+</script>
+</body></html>
