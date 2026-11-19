@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>面談の対応日カレンダー｜コロコロタウン聞き取り調査</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box;}
+body { font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif; background:#FBF6EC; color:#4A2C1A; line-height:1.7;}
+.wrap { max-width:640px; margin:0 auto; padding:0 16px 48px;}
+.brand { text-align:center; font-size:12px; letter-spacing:.12em; color:#8A6A45; padding:18px 0 10px;}
+h1 { font-size:20px; text-align:center; margin:16px 0 4px;}
+.subtitle { text-align:center; font-size:14px; font-weight:bold; color:#8A5A2B; margin-bottom:14px;}
+.card { background:#fff; border-radius:14px; padding:18px 16px; margin-bottom:18px; box-shadow:0 2px 8px rgba(74,44,26,.08);}
+.card p { font-size:14px; margin:6px 0;}
+.legend { font-size:13px; color:#7A5C38;}
+table { width:100%; border-collapse:collapse; margin-top:8px;}
+th { font-size:12px; color:#8A6A45; padding:4px 0;}
+td { text-align:center; padding:3px; }
+.day { display:block; width:100%; padding:8px 0 6px; border-radius:10px; font-size:15px; font-weight:bold; background:#F3EAD8; color:#B8A888;}
+.day small { display:block; font-size:11px; font-weight:bold;}
+.day.ok { background:#E7F4EC; color:#2E7D4F; cursor:pointer; border:2px solid #9CCBAA;}
+.day.pm { background:#FFF6DE; color:#9A7B1E; cursor:pointer; border:2px solid #E3CD8A;}
+.day.sel { background:#C62828 !important; color:#fff !important; border-color:#C62828 !important;}
+.day.off { opacity:.45;}
+.month { font-weight:bold; font-size:16px; margin-top:6px;}
+.chip { display:inline-block; padding:10px 16px; border-radius:999px; border:2px solid #8A5A2B; color:#8A5A2B; font-weight:bold; font-size:14px; cursor:pointer; margin:6px 0;}
+.chip.sel { background:#C62828; border-color:#C62828; color:#fff;}
+.btn { display:block; width:100%; text-align:center; font-weight:bold; font-size:16px; padding:15px; border-radius:12px; border:none; background:#8A5A2B; color:#fff; cursor:pointer; margin-top:12px;}
+.sel-line { font-size:14px; margin-top:10px;}
+select { font-size:15px; padding:8px; border-radius:8px; border:1px solid #C9B998; width:100%;}
+footer { text-align:center; font-size:12px; color:#A98F68; margin-top:30px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="brand">コロコロタウン｜介護コミュニケーションを伝えるプロ</div>
+<h1>面談の対応日カレンダー</h1>
+<p class="subtitle">コロコロタウン聞き取り調査</p>
+<div class="card">
+<p>面談型でお話しできる日です。希望の日をタップして選んでください（複数選べます）。</p>
+<p class="legend">○＝対応できます　△＝午後なら対応できます<br>時間は、InstagramのDMで調整します。</p>
+<p style="margin-top:10px;">カテゴリ：<span id="catname"></span></p>
+<select id="catsel" style="display:none;"></select>
+<div id="cal"></div>
+<div><span class="chip jandate" data-v="1月1日（金）">1月1日（金）○</span> <span class="chip jandate" data-v="1月2日（土）">1月2日（土）○</span></div>
+<div><span class="chip" id="anyday">どの日でも大丈夫</span></div>
+<p class="sel-line">選んだ日：<strong id="sellist">まだ選んでいません</strong></p>
+<button class="btn" id="back">選んだ日を持って、アンケートへ戻る</button>
+<p class="legend" style="margin-top:8px;">戻ると、選んだ日にチェックが入った状態でアンケートが開きます。日を選ばずに戻ることもできます。</p>
+</div>
+<footer>コロコロタウン｜介護コミュニケーションを伝えるプロ</footer>
+</div>
+<script>
+var FORMS = {"1": {"pub": "1FAIpQLSfIgJjAQ-xMYtKYo1ExibcKfZ-o7ky64BZgZiRIbaUPGx7qSQ", "entry": 2103178867, "name": "デイサービス・外出の拒否"}, "2": {"pub": "1FAIpQLScdmmvyGoB3PSxQneCmokT2y_7kmAKEmPkhHk5ui4t2jqK8ig", "entry": 1736744977, "name": "食事・買い物"}, "3": {"pub": "1FAIpQLSfQiWLH84ngrajkWPTJguVcL5anZ0llQhfamW-5wxztglaSqw", "entry": 1577488769, "name": "物取られ妄想・繰り返しの訴え"}, "4": {"pub": "1FAIpQLSfiSA84oOQhVVKPu7ifmXcUs1fxgl7hcrePa83EKICp6LQV0g", "entry": 109168559, "name": "夜のこと"}, "5": {"pub": "1FAIpQLSfNvv5uSLivOXF-tTC1KxGofrgOmRZz2E-OsplrmRP9Nm4UTg", "entry": 1879312503, "name": "徘徊"}, "6": {"pub": "1FAIpQLSdBCp5toYBOh-LmlqcKNX5so_m5Awd_AQ5szH1w7CQGGAtXig", "entry": 367623934, "name": "昼夜逆転"}, "7": {"pub": "1FAIpQLSe9YNV_VJjOKcJqtCEeii6tVS7P4D0jvOXPrZD66T2jfTx-Ng", "entry": 633772338, "name": "排泄のこと"}};
+var AVAIL = {"2026-11-20": ["11月20日（金）午後なら可", "pm"], "2026-11-21": ["11月21日（土）", "ok"], "2026-11-22": ["11月22日（日）", "ok"], "2026-11-23": ["11月23日（月）", "ok"], "2026-11-25": ["11月25日（水）午後なら可", "pm"], "2026-11-28": ["11月28日（土）", "ok"], "2026-11-29": ["11月29日（日）", "ok"], "2026-12-05": ["12月5日（土）", "ok"], "2026-12-06": ["12月6日（日）", "ok"], "2026-12-11": ["12月11日（金）", "ok"], "2026-12-13": ["12月13日（日）", "ok"], "2026-12-18": ["12月18日（金）午後なら可", "pm"], "2026-12-19": ["12月19日（土）", "ok"], "2026-12-20": ["12月20日（日）", "ok"], "2026-12-25": ["12月25日（金）", "ok"], "2026-12-26": ["12月26日（土）", "ok"], "2026-12-27": ["12月27日（日）", "ok"], "2026-12-28": ["12月28日（月）", "ok"], "2026-12-29": ["12月29日（火）", "ok"], "2026-12-30": ["12月30日（水）", "ok"], "2026-12-31": ["12月31日（木）", "ok"], "2027-01-01": ["1月1日（金）", "ok"], "2027-01-02": ["1月2日（土）", "ok"]};
+var params = new URLSearchParams(location.search);
+var cat = params.get('cat');
+var sel = new Set();
+var anyday = false;
+var catsel = document.getElementById('catsel');
+Object.keys(FORMS).forEach(function(k){
+  var o = document.createElement('option'); o.value = k; o.textContent = 'カテゴリ' + k + '：' + FORMS[k].name; catsel.appendChild(o);
+});
+function applyCat(){
+  if (cat && FORMS[cat]) { document.getElementById('catname').textContent = 'カテゴリ' + cat + '：' + FORMS[cat].name; catsel.style.display = 'none'; }
+  else { catsel.style.display = 'block'; document.getElementById('catname').textContent = ''; cat = catsel.value; }
+}
+catsel.addEventListener('change', function(){ cat = catsel.value; });
+applyCat();
+function key(y, m, d){ return y + '-' + String(m).padStart(2,'0') + '-' + String(d).padStart(2,'0'); }
+function buildMonth(y, m){
+  var first = new Date(y, m-1, 1); var startDay = first.getDay();
+  var days = new Date(y, m, 0).getDate();
+  var h = '<p class="month">' + y + '年' + m + '月</p><table><tr><th>日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th></tr><tr>';
+  for (var i=0;i<startDay;i++) h += '<td></td>';
+  var col = startDay;
+  for (var d=1; d<=days; d++){
+    var k = key(y, m, d); var a = AVAIL[k];
+    var past = (y===2026 && m===11 && d<20);
+    if (a && !past) {
+      var mark = a[1]==='ok' ? '○' : '△';
+      h += '<td><span class="day ' + a[1] + '" data-v="' + a[0] + '">' + d + '<small>' + mark + (a[1]==='pm' ? '午後' : '') + '</small></span></td>';
+    } else {
+      h += '<td><span class="day' + (past ? ' off' : '') + '">' + d + '<small>　</small></span></td>';
+    }
+    col++; if (col===7 && d<days){ h += '</tr><tr>'; col = 0; }
+  }
+  h += '</tr></table>'; return h;
+}
+var calHtml = buildMonth(2026, 11) + buildMonth(2026, 12);
+document.getElementById('cal').innerHTML = calHtml;
+function refresh(){
+  document.querySelectorAll('.day.ok,.day.pm,.jandate').forEach(function(el){
+    el.classList.toggle('sel', sel.has(el.getAttribute('data-v')));
+  });
+  document.getElementById('anyday').classList.toggle('sel', anyday);
+  var list = Array.from(sel);
+  if (anyday) list.push('どの日でも大丈夫');
+  document.getElementById('sellist').textContent = list.length ? list.join('、') : 'まだ選んでいません';
+}
+document.querySelectorAll('.day.ok,.day.pm,.jandate').forEach(function(el){
+  el.addEventListener('click', function(){
+    var v = el.getAttribute('data-v');
+    if (sel.has(v)) sel.delete(v); else sel.add(v);
+    refresh();
+  });
+});
+document.getElementById('anyday').addEventListener('click', function(){ anyday = !anyday; refresh(); });
+document.getElementById('back').addEventListener('click', function(){
+  var f = FORMS[cat];
+  var url = 'https://docs.google.com/forms/d/e/' + f.pub + '/viewform';
+  var list = Array.from(sel); if (anyday) list.push('どの日でも大丈夫');
+  if (list.length) {
+    url += '?' + list.map(function(v){ return 'entry.' + f.entry + '=' + encodeURIComponent(v); }).join('&');
+  }
+  location.href = url;
+});
+refresh();
+</script>
+</div>
+</body>
+</html>
